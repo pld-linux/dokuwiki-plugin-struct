@@ -1,4 +1,4 @@
-%define		subver	2016-11-03
+%define		subver	2023-03-14
 %define		ver		%(echo %{subver} | tr -d -)
 %define		plugin		struct
 %define		php_min_version 5.6.0
@@ -9,8 +9,8 @@ Version:	%{ver}
 Release:	1
 License:	GPL v2
 Group:		Applications/WWW
-Source0:	https://github.com/cosmocode/dokuwiki-plugin-struct/archive/9ce9c74/%{plugin}-%{subver}.tar.gz
-# Source0-md5:	7d6f2807334aa61515c22c430eee4749
+Source0:	https://github.com/cosmocode/dokuwiki-plugin-struct/archive/%{subver}/%{plugin}-%{subver}.tar.gz
+# Source0-md5:	b79aa8017906680ad0330c1135501853
 URL:		https://www.dokuwiki.org/plugin:struct
 BuildRequires:	rpm-php-pearprov >= 4.4.2-11
 BuildRequires:	rpmbuild(find_lang) >= 1.41
@@ -48,6 +48,7 @@ mv *-%{plugin}-*/{.??*,*} .
 
 rm deleted.files
 rm .travis.yml
+rm -r .github
 
 %build
 version=$(awk '/^date/{print $2}' plugin.info.txt)
@@ -81,6 +82,7 @@ fi
 %{plugindir}/*.js
 %{plugindir}/*.less
 %{plugindir}/*.php
+%{plugindir}/*.svg
 %{plugindir}/*.txt
 %{plugindir}/action
 %{plugindir}/admin
