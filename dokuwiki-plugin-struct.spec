@@ -15,7 +15,7 @@ URL:		https://www.dokuwiki.org/plugin:struct
 BuildRequires:	rpm-php-pearprov >= 4.4.2-11
 BuildRequires:	rpmbuild(find_lang) >= 1.41
 BuildRequires:	rpmbuild(macros) >= 1.553
-Requires:	dokuwiki >= 20160626
+Requires:	dokuwiki >= 20180422
 Requires:	dokuwiki-plugin-sqlite >= 20160810
 Requires:	php(core) >= %{php_min_version}
 BuildArch:	noarch
