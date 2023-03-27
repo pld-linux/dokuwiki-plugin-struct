@@ -13,6 +13,7 @@ Source0:	https://github.com/cosmocode/dokuwiki-plugin-struct/archive/9ce9c74/%{p
 # Source0-md5:	7d6f2807334aa61515c22c430eee4749
 URL:		https://www.dokuwiki.org/plugin:struct
 BuildRequires:	rpm-php-pearprov >= 4.4.2-11
+BuildRequires:	rpmbuild(find_lang) >= 1.41
 BuildRequires:	rpmbuild(macros) >= 1.553
 Requires:	dokuwiki >= 20160626
 Requires:	dokuwiki-plugin-sqlite >= 20160810
@@ -23,7 +24,6 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 %define		dokuconf	/etc/webapps/dokuwiki
 %define		dokudir		/usr/share/dokuwiki
 %define		plugindir	%{dokudir}/lib/plugins/%{plugin}
-%define		find_lang 	%{_usrlibrpm}/dokuwiki-find-lang.sh %{buildroot}
 
 %description
 A new structured data plugin.
@@ -63,7 +63,7 @@ cp -a . $RPM_BUILD_ROOT%{plugindir}
 %{__rm} $RPM_BUILD_ROOT%{plugindir}/{LICENSE,README}
 %{__rm} -r $RPM_BUILD_ROOT%{plugindir}/_test
 
-%find_lang %{name}.lang
+%find_lang %{name}.lang --with-dokuwiki
 
 %clean
 rm -rf $RPM_BUILD_ROOT
